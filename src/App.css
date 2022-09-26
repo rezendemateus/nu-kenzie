@@ -1,0 +1,53 @@
+:root {
+  --branco: #ffffff;
+
+  --color-primary: #fd377e;
+  --color-primary-2: #e34981;
+  --color-secundary: #03b898;
+
+  --grey-1: #f8f9fa;
+  --grey-2: #e9ecef;
+  --grey-3: #868e96;
+  --grey-4: #212529;
+}
+
+.App {
+  font-family: "Nunito", sans-serif;
+  width: 100vw;
+  height: 100vh;
+}
+
+.dark {
+  background-color: #000000;
+}
+
+.title-1 {
+  font-weight: bold;
+  font-size: 1.75rem;
+}
+
+.title-2 {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.title-3 {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.title-4 {
+  font-weight: bold;
+  font-size: 0.75rem;
+}
+
+.headline {
+  font-weight: normal;
+  font-size: 1rem;
+}
+
+.body {
+  font-weight: normal;
+
+  font-size: 0.75rem;
+}

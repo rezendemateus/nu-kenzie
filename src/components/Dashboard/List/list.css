@@ -1,0 +1,24 @@
+.transactions-list {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+}
+
+li {
+  width: 100%;
+}
+
+svg {
+  margin: -10px -20px;
+  width: 100%;
+}
+
+@media (min-width: 1080px) {
+  svg {
+    margin: 10px 20px;
+    width: 100%;
+  }
+}
