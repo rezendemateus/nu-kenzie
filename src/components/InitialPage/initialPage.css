@@ -9,9 +9,9 @@
   font-family: "Nunito", sans-serif;
 }
 
-.container {
+.containerStart {
   display: flex;
-  width: 100%;
+  width: 90%;
   height: 100%;
   flex-direction: column-reverse;
   align-items: center;
@@ -30,7 +30,8 @@
 }
 
 .presentation h1 {
-  width: 250px;
+  width: 100%;
+  max-width: 250px;
 }
 
 .illustration {
@@ -41,7 +42,7 @@
   justify-content: center;
 }
 
-.illustration svg {
+svg {
   width: 100%;
 }
 
@@ -61,4 +62,21 @@
   border-color: var(--color-primary-2);
   background-color: var(--color-primary-2);
   transition: 0.2s ease;
+}
+
+@media (min-width: 700px) {
+  .containerStart {
+    flex-direction: row;
+    max-width: 900px;
+  }
+
+  .presentation .logo {
+    margin-left: 20px;
+  }
+}
+
+@media (min-width: 1080px) {
+  .presentation .logo {
+    margin-left: -35px;
+  }
 }

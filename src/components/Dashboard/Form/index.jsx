@@ -4,15 +4,39 @@ import "./form.css";
 export const Form = ({ listTransactions, setListTransactions }) => {
   const [newTransaction, setNewTransaction] = useState({
     money: 0,
-    description: "",
-    operation: "",
+    description: "Sem descrição",
+    operation: "entrada",
   });
 
+  const total = listTransactions.reduce(
+    (prev, current) => prev + current.money,
+    0
+  );
+
   const onSubmit = (el) => {
-    console.log(newTransaction);
-    setListTransactions([...listTransactions, newTransaction]);
-    setNewTransaction({ money: 0, description: "", operation: "" });
-    console.log(newTransaction);
+    if (newTransaction.money === 0) {
+      alert("Valor inválido!");
+    } else if (
+      newTransaction.operation === "saida" &&
+      total < newTransaction.money
+    ) {
+      alert("Saldo insuficiente");
+    } else {
+      if (newTransaction.description === "") {
+        setNewTransaction({ description: "Nova transação" });
+      }
+
+      if (newTransaction.operation === "saida") {
+        newTransaction.money = newTransaction.money - newTransaction.money * 2;
+      }
+
+      setListTransactions([...listTransactions, newTransaction]);
+      setNewTransaction({
+        money: 0,
+        description: "Sem descrição",
+        operation: "entrada",
+      });
+    }
   };
 
   return (
@@ -20,6 +44,7 @@ export const Form = ({ listTransactions, setListTransactions }) => {
       className="form"
       onSubmit={(e) => {
         e.preventDefault();
+
         onSubmit();
       }}
     >
@@ -27,7 +52,7 @@ export const Form = ({ listTransactions, setListTransactions }) => {
         Descrição
         <input
           type="text"
-          value={newTransaction.description}
+          // value={newTransaction.description}
           name="description"
           placeholder="Digite aqui sua descrição"
           onChange={(el) =>
@@ -51,7 +76,7 @@ export const Form = ({ listTransactions, setListTransactions }) => {
             onChange={(el) =>
               setNewTransaction({
                 ...newTransaction,
-                money: el.target.value,
+                money: +el.target.value,
               })
             }
           ></input>
@@ -68,7 +93,7 @@ export const Form = ({ listTransactions, setListTransactions }) => {
                 operation: el.target.value,
               })
             }
-            defaultValue="entrada"
+            value={newTransaction.operation}
           >
             <option value="entrada">Entrada</option>
             <option value="saida">Saída</option>

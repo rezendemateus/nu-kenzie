@@ -1,18 +1,19 @@
 import { Card } from "./Card";
 import "./list.css";
 
-export const List = ({ listTransactions }) => {
+export const List = ({ listTransactions, filter }) => {
+  console.log(listTransactions, filter);
+
   return (
     <>
       {listTransactions.length ? (
-        <ul className="transactions-list">
-          {listTransactions.length &&
-            listTransactions.map((transaction, index) => {
-              return <Card key={index} transaction={transaction} />;
-            })}
+        <ul className="transactionsList">
+          {listTransactions.map((transaction, index) => {
+            return <Card key={index} transaction={transaction} />;
+          })}
         </ul>
       ) : (
-        <ul className="transactions-list">
+        <ul className="transactionsList">
           <li>
             <svg
               width="562"
@@ -116,4 +117,30 @@ export const List = ({ listTransactions }) => {
       )}
     </>
   );
+
+  // return (
+  //   <>
+  //     {listTransactions.length > 0 && filter !== "todos" ? (
+  //       <ul className="transactions-list">
+  //         {listTransactions.map((transaction, index) => {
+  //           return (
+  //             transaction.operation === filter && (
+  //               <Card key={index} transaction={transaction} />
+  //             )
+  //           );
+  //         })}
+  //       </ul>
+  //     ) : (
+  //       listTransactions.length > 0 &&
+  //       filter !==
+  //         "todos"(
+  //           <ul className="transactions-list">
+  //             {listTransactions.map((transaction, index) => {
+  //               return <Card key={index} transaction={transaction} />;
+  //             })}
+  //           </ul>
+  //         )
+  //     )}
+  //   </>
+  // );
 };

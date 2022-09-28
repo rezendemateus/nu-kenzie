@@ -3,29 +3,35 @@ import { Form } from "./Form";
 import { List } from "./List";
 import { Logo } from "../SVGs/logo";
 import "./Dashboard.css";
+import { useState } from "react";
 
 export const Dashboard = ({
   listTransactions,
   setListTransactions,
   setToken,
 }) => {
+  const [filter, setFilter] = useState("todos");
+
   return (
     <div className="dashboard">
       <header className="header">
-        <div className="logo">
-          <Logo />
-        </div>
+        <div className="headerContent">
+          <div className="logo">
+            <Logo />
+          </div>
 
-        <button
-          type="button"
-          onClick={(el) => {
-            el.preventDefault();
-            setToken(false);
-          }}
-          className="sair"
-        >
-          Sair
-        </button>
+          <button
+            type="button"
+            onClick={(el) => {
+              el.preventDefault();
+              window.confirm("Certeza?");
+              setToken(false);
+            }}
+            className="sair"
+          >
+            Sair
+          </button>
+        </div>
       </header>
 
       <div className="container">
@@ -39,7 +45,33 @@ export const Dashboard = ({
         </div>
 
         <div className="summary">
-          <List listTransactions={listTransactions} />
+          <div className="summaryHeader">
+            <h3>Resumo financeiro</h3>
+            <div className="summaryButtons">
+              <button
+                type="button"
+                name="todos"
+                onClick={(el) => setFilter(el.target.name)}
+              >
+                Todos
+              </button>
+              <button
+                type="button"
+                name="entrada"
+                onClick={(el) => setFilter(el.target.name)}
+              >
+                Entradas
+              </button>
+              <button
+                type="button"
+                name="saida"
+                onClick={(el) => setFilter(el.target.name)}
+              >
+                Despesas
+              </button>
+            </div>
+          </div>
+          <List listTransactions={listTransactions} filter={filter} />
         </div>
       </div>
     </div>

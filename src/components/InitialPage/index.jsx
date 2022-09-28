@@ -11,7 +11,7 @@ export const InitialPage = ({ token, setToken }) => {
   return (
     <>
       <div className="initial-page">
-        <div className="container">
+        <div className="containerStart">
           <div className="presentation">
             <LogoBranco />
             <h1 className="title-1">Centralize o controle das suas finanças</h1>
