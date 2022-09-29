@@ -60,34 +60,11 @@
   height: auto;
 }
 
-.summary {
-  display: flex;
-  flex-direction: column;
-  width: 95%;
-}
-
-.summaryButtons {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.summaryButtons button {
-  padding: 15px;
-  background-color: var(--grey-2);
-  border: 1.4px solid var(--grey-2);
-  border-radius: 8px;
-  color: var(--grey-4);
-  font-weight: 600;
-}
-
-.summaryButtons button:hover {
-  background-color: var(--grey-3);
-}
-
 @media (min-width: 1080px) {
-  .dashboard {
+  .container {
+    flex-direction: row;
+    height: 100%;
+    align-items: flex-start;
+    justify-content: space-evenly;
   }
 }

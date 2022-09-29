@@ -1,5 +1,5 @@
 .transactionsList {
-  width: 95%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,15 +9,56 @@
   font-family: "Nunito", sans-serif;
 }
 
-li {
+.summary {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+  max-width: 563px;
+}
+
+.summaryHeader {
+  width: 100%;
+}
+
+.summaryButtons {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.summaryButtons button {
+  padding: 15px;
+  background-color: var(--grey-2);
+  border: 1.4px solid var(--grey-2);
+  border-radius: 8px;
+  color: var(--grey-4);
+  font-weight: 600;
+}
+
+.summaryButtons button:hover {
+  background-color: var(--grey-3);
+}
+
+.card-transaction,
+.card-transaction-entrada {
   width: 100%;
   height: 87px;
   background-color: var(--grey-1);
   border-radius: 4px;
-  border-left: 6px solid var(--color-secundary);
+  border-left: 6px solid var(--grey-2);
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  left: -20px;
+}
+
+.card-transaction-entrada {
+  border-color: var(--color-secundary);
 }
 
 .contentCard {
@@ -61,14 +102,39 @@ li {
   font-size: 0.7rem;
 }
 
-svg {
-  margin: -10px -20px;
+.transactionsList-empty {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+  gap: 32px;
+}
+
+.transactionsList-empty svg {
   width: 100%;
 }
 
-@media (min-width: 1080px) {
-  svg {
-    margin: 10px 20px;
-    width: 100%;
+@media (min-width: 700px) {
+  .summaryHeader {
+    /* width: 0%; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .summaryHeader h3 {
+    width: 30%;
+  }
+
+  .summaryButtons {
+    width: 50%;
+    justify-content: space-between;
+  }
+
+  .transactionsList {
+    align-items: center;
   }
 }

@@ -12,6 +12,13 @@ export const Dashboard = ({
 }) => {
   const [filter, setFilter] = useState("todos");
 
+  let filteredList =
+    listTransactions.length > 0 && filter !== "todos"
+      ? listTransactions.filter(
+          (transaction) => transaction.operation === filter
+        )
+      : listTransactions;
+
   return (
     <div className="dashboard">
       <header className="header">
@@ -71,7 +78,7 @@ export const Dashboard = ({
               </button>
             </div>
           </div>
-          <List listTransactions={listTransactions} filter={filter} />
+          <List filteredList={filteredList} />
         </div>
       </div>
     </div>
